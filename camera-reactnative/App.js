@@ -22,11 +22,6 @@ export default function App() {
     const { status } = await MediaLibrary.requestPermissionsAsync();//permissão de salvar a foto
     setHaspermission(status === 'granted');//um controle se quer aceitar ou não a permissão de salvar a foto
     })();
-
-    //(async () => {
-    //  const { status } = await Permissions.askAsync(Permissions.CAMERA);//pega o status com async da pernissão camera roll
-    //  setHaspermission(status === 'granted');//aparece um modal de aviso perguntando se aceito salvar fotos no celular
-    //})();
   }, []);
 
   if(hasPermission === null){
@@ -50,7 +45,7 @@ export default function App() {
     const asset = await MediaLibrary.createAssetAsync(capturedPhoto)//coloca state pegar foto em MediaLibrary na sua galeria do celular
     .then(() => {//caso salve a foto cai dentro desse then
       alert('Foto Salvo com sucesso!')
-      console.log('SALVO', asset );
+      console.log('Salvo', asset );
     })
     .catch(error => {
       console.log('err', error );
